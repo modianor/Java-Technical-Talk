@@ -137,7 +137,7 @@ AVL树是最先发明的 **自平衡二叉查找树**。在AVL树中任何节点
 
 > 如果一条路径上的顶点除了起点和终点可以相同外，其它顶点均不相同，则称此路径为一条简单路径；起点和终点相同的简单路径称为回路（或环）。
 
-![img](https://hadyang.github.io/interview/docs/basic/algo/tree/images/red_black_tree.png)
+![img](Java面试.assets/red_black_tree.png)
 
 > 红黑树相对于AVL树来说，牺牲了部分平衡性以换取插入/删除操作时少量的旋转操作，整体来说性能要优于AVL树。
 
@@ -169,7 +169,7 @@ B树内的节点可分为三类：
 - 根节点：根节点拥有的子节点数量的上限和内部节点相同，但是没有下限。
 - 叶子节点：叶子节点对元素的数量有相同的限制，但是没有子节点，也没有指向子节点的指针。
 
-![img](https://hadyang.github.io/interview/docs/basic/algo/tree/images/b.png)
+![img](Java面试.assets/b-1583155206002.png)
 
 ### B树的查找
 
@@ -195,7 +195,7 @@ B树内的节点可分为三类：
 
 ## B+树
 
-![img](https://hadyang.github.io/interview/docs/basic/algo/tree/images/b+.png)
+![img](Java面试.assets/b+-1583155210679.png)
 
 B+ 树是 B 树的变体，也是一种多路搜索树。m阶的 B+ 树和 B 树的主要差异如下：
 
