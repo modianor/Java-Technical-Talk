@@ -444,6 +444,26 @@
 
 1. ##### 什么是 rebase
 
+   - 和上节内容一样, 不过我们今天来玩一个更高级的合并方式 `rebase`. 同样是合并 `rebase` 的做法和 `merge` 不一样.
+
+     假设共享的 branch 是 `branch B`, 而我在 `branch A` 上工作, 有一天我发现`branch B`已经有一些小更新, 我也想试试我的程序和这些小更新兼不兼容, 我也我想合并, 这时就可以用 `rebase` 来补充我的分支`branch B`的内容. 补充完以后, 和后面那张图的 `merge` 不同, 我还是继续在 `C3` 上工作, 不过此时的 `C3` 的本质却不一样了, 因为吸收了那些小更新. 所以我们用 `C3'` 来代替.
+
+     ![rebase åæ¯å²çª](Git tutorial.assets/4-3-1.png)
+
+     ![rebase åæ¯å²çª](Git tutorial.assets/4-3-2.png)
+
+     ![rebase åæ¯å²çª](Git tutorial.assets/4-3-3.png)
+
+     ![rebase åæ¯å²çª](Git tutorial.assets/4-3-4.png)
+
+   - 可以看出 `rebase` 改变了 `C3` 的属性, `C3` 已经不是从 `C1` 衍生而来的了. 这一点和 `merge` 不一样. `merge` 在合并的时候创建了一个新的 `C5` `commit`. 这一点不同, 使得在共享分支中使用 `rebase` 变得危险. 如果是共享分支的历史被改写. 别人之前共享内容的 `commit` 就被你的 `rebase` 修改掉了.
+
+     ![rebase åæ¯å²çª](Git tutorial.assets/4-2-1-1587057179708.png)
+
+   - 所以需要强调的是 **!!! 只能在你自己的分支中使用 rebase, 和别人共享的部分是不能用 !!!**. 如果你不小心弄错了. 没事, 我们还能用在 `reset` 这一节 提到的 `reflog` 恢复原来的样子. 为了验证在共享分支上使用 `rebase` 的危险性, 我们在下面的例子中也验证一下.
+
+     
+
 2. ##### 使用 rebase
 
 
