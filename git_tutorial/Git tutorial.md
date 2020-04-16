@@ -24,11 +24,11 @@
 
    - 打开[Git官网](https://git-scm.com/)
 
-     <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200416212553550.png" alt="image-20200416212553550" style="zoom: 33%;" />
+     <img src="Git tutorial.assets/image-20200416212553550.png" alt="image-20200416212553550" style="zoom: 33%;" />
 
    - 下载对应操作系统的Git安装包
 
-     <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200416212630421.png" alt="image-20200416212630421" style="zoom: 33%;" />
+     <img src="Git tutorial.assets/image-20200416212630421.png" alt="image-20200416212630421" style="zoom: 33%;" />
 
    - 点击安装，傻瓜无脑
 
