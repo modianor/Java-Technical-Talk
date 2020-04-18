@@ -1,4 +1,6 @@
-## Git tutorial
+
+
+## 介绍
 
 #### Why Git?
 
@@ -33,6 +35,8 @@
    - 点击安装，傻瓜无脑
 
 
+
+## 创建/修改 版本库
 
 #### 第一个版本库 **Repository**
 
@@ -146,6 +150,8 @@
 
 
 
+## 回到从前
+
 #### 回到从前 (reset)
 
 1. ##### 修改已 commit 的版本
@@ -234,9 +240,11 @@
 
 
 
+## 分支管理
+
 #### 分支 (branch)
 
-1. ##### 分支 图例
+1. ##### 分支 ![Using branches](Git tutorial.assets/hero.svg)
 
    - 我们之前的文件当中, 仅仅只有一条 `master` 分支, 我们可以通过 `--graph` 来观看分支:
 
@@ -249,54 +257,54 @@
      * 13be9a7 create 1.py
      ```
 
-   - 接着我们建立另一个分支 `dev`, 并查看所有分支:
-
-     ```bash
-     $ git branch dev    # 建立 dev 分支
-     $ git branch        # 查看当前分支
-     
-     # 输出
-       dev       
-     * master    # * 代表了当前的 HEAD 所在的分支
-     ```
-
-   - 当我们想把 `HEAD` 切换去 `dev` 分支的时候, 我们可以用到上次说的 `checkout`:
-
-     ```bash
-     $ git checkout dev
-     
-     # 输出
-     Switched to branch 'dev'
-     --------------------------
-     $ git branch
-     
-     # 输出
-     * dev       # 这时 HEAD 已经被切换至 dev 分支
-       master
-     ```
-
-     
-
 2. ##### 使用 checkout 创建 dev 分支
 
-   - 使用 `checkout -b` + 分支名, 就能直接创建和切换到新建的分支:
+  - 接着我们建立另一个分支 `dev`, 并查看所有分支:
 
-     ```bash
-     $ git checkout -b  dev
-     
-     # 输出
-     Switched to a new branch 'dev'
-     --------------------------
-     $ git branch
-     
-     # 输出
-     * dev       # 这时 HEAD 已经被切换至 dev 分支
-       master
-     ```
-
-   - 
+    ```bash
+    $ git branch dev    # 建立 dev 分支
+    $ git branch        # 查看当前分支
+    
+    # 输出
+      dev       
+    * master    # * 代表了当前的 HEAD 所在的分支
+    ```
 
 3. ##### 在 dev 分支中修改 
+
+  - 当我们想把 `HEAD` 切换去 `dev` 分支的时候, 我们可以用到上次说的 `checkout`:
+
+    ```bash
+    $ git checkout dev
+    
+    # 输出
+    Switched to branch 'dev'
+    --------------------------
+    $ git branch
+    
+    # 输出
+    * dev       # 这时 HEAD 已经被切换至 dev 分支
+      master
+    ```
+
+  - 使用 `checkout -b` + 分支名, 就能直接创建和切换到新建的分支:
+
+    ```bash
+    $ git checkout -b  dev
+    
+    # 输出
+    Switched to a new branch 'dev'
+    --------------------------
+    $ git branch
+    
+    # 输出
+    * dev       # 这时 HEAD 已经被切换至 dev 分支
+      master
+    ```
+
+  - 
+
+4. ##### 将 dev 的修改推送到 master 
 
    - `dev` 分支中的 `1.py` 和 `2.py` 和 `master` 中的文件是一模一样的. 因为当前的指针 `HEAD` 在 `dev` 分支上, 所以现在对文件夹中的文件进行修改将不会影响到 `master` 分支.
 
@@ -341,7 +349,7 @@
      * 13be9a7 create 1.py
      ```
 
-4. ##### 将 dev 的修改推送到 master 
+   
 
 
 
@@ -446,7 +454,7 @@
 
    - 和上节内容一样, 不过我们今天来玩一个更高级的合并方式 `rebase`. 同样是合并 `rebase` 的做法和 `merge` 不一样.
 
-     假设共享的 branch 是 `branch B`, 而我在 `branch A` 上工作, 有一天我发现`branch B`已经有一些小更新, 我也想试试我的程序和这些小更新兼不兼容, 我也我想合并, 这时就可以用 `rebase` 来补充我的分支`branch B`的内容. 补充完以后, 和后面那张图的 `merge` 不同, 我还是继续在 `C3` 上工作, 不过此时的 `C3` 的本质却不一样了, 因为吸收了那些小更新. 所以我们用 `C3'` 来代替.
+     假设共享的 branch 是 `branch B`, 而我在 `branch A` 上工作, 有一天我发现`branch B`已经有一些小更新, 我也想试试我的程序和这些小更新兼不兼容, 我也想合并, 这时就可以用 `rebase` 来补充我的分支`branch B`的内容. 补充完以后, 和后面那张图的 `merge` 不同, 我还是继续在 `C3` 上工作, 不过此时的 `C3` 的本质却不一样了, 因为吸收了那些小更新. 所以我们用 `C3'` 来代替.
 
      ![rebase1](Git tutorial.assets/4-3-1.png)
 
@@ -462,19 +470,351 @@
 
    - 所以需要强调的是 **!!! 只能在你自己的分支中使用 rebase, 和别人共享的部分是不能用 !!!**. 如果你不小心弄错了. 没事, 我们还能用在 `reset` 这一节 提到的 `reflog` 恢复原来的样子. 为了验证在共享分支上使用 `rebase` 的危险性, 我们在下面的例子中也验证一下.
 
-   - 
-
 2. ##### 使用 rebase
 
+   - 初始的版本库还是和上回一样, 在 `master` 和 `dev` 分支中都有自己的独立修改.
 
+     ```bash
+     # 这是 master 的 log
+     * 3d7796e change 4 in master # 这一条 commit 和 dev 的不一样
+     * 47f167e back to change 1 and add comment for 1.py
+     * 904e1ba change 2
+     * c6762a1 change 1
+     * 13be9a7 create 1.py
+     -----------------------------
+     # 这是 dev 的 log
+     * f7d2e3a change 3 in dev   # 这一条 commit 和 master 的不一样
+     * 47f167e back to change 1 and add comment for 1.py
+     * 904e1ba change 2
+     * c6762a1 change 1
+     * 13be9a7 create 1.py
+     ```
+
+   - 当我们想要用 `rebase` 合并 `dev` 到 `master` 的时候:
+
+     ```bash
+     $ git branch
+     
+     # 输出
+     * dev
+       master
+     -------------------------
+     $ git rebase master 
+     
+     # 输出
+     First, rewinding head to replay your work on top of it...
+     Applying: change 3 in dev
+     Using index info to reconstruct a base tree...
+     M	1.py
+     Falling back to patching base and 3-way merge...
+     Auto-merging 1.py
+     CONFLICT (content): Merge conflict in 1.py
+     error: Failed to merge in the changes.
+     Patch failed at 0001 change 3 in dev
+     The copy of the patch that failed is found in: .git/rebase-apply/patch
+     
+     When you have resolved this problem, run "git rebase --continue".
+     If you prefer to skip this patch, run "git rebase --skip" instead.
+     To check out the original branch and stop rebasing, run "git rebase --abort".
+     ```
+
+   - git 发现的我们的 `1.py` 在 `master` 和 `dev` 上的版本是不同的, 所以提示 `merge` 有冲突. 具体的冲突, git 已经帮我们标记出来, 我们打开 `1.py` 就能看到:
+
+     ```bash
+     a = 1
+     # I went back to change 1
+     <<<<<<< f7d2e3a047be4624e83c1265a0946e2e8790f79c
+     # edited in dev
+     =======
+     # edited in master
+     >>>>>>> change 4 in master
+     ```
+
+   - 这时 `HEAD` 并没有指向 `master` 或者 `dev`, 而是停在了 `rebase` 模式上:
+
+     ```bash
+     $ git branch
+     * (no branch, rebasing master) # HEAD 在这
+       dev
+       master
+     ```
+
+   - 所以我们打开 `1.py`, 手动合并一下两者的不同.
+
+     ```bash
+     a = 1
+     # I went back to change 1
+     
+     # edited in master and dev
+     ```
+
+   - 然后执行 `git add` 和 `git rebase --continue` 就完成了 `rebase` 的操作了.
+
+     ```bash
+     $ git add 1.py
+     $ git rebase --continue
+     ```
+
+   - 再来看看 `master` 的 `log`:
+
+     ```bash
+     $ git log --oneline --graph
+     
+     # 输出
+     * c844cb1 change 4 in master    # 这条 commit 原本的id=3d7796e, 所以 master 的历史被修改
+     * f7d2e3a change 3 in dev       # rebase 过来的 dev commit
+     * 47f167e back to change 1 and add comment for 1.py
+     * 904e1ba change 2
+     * c6762a1 change 1
+     * 13be9a7 create 1.py
+     ```
+
+   - **!! 注意 !!** 这个例子也说明了使用 `rebase` 要万分小心, 千万不要在共享的 branch 中 `rebase`, 不然就像上面那样, 现在 `master` 的历史已经被 `rebase` 改变了. `master` 当中别人提交的 `change 4` 就被你无情地修改掉了, 所以千万不要在共享分支中使用 `rebase`.
+   
+     
+   
+   - ## 总结
+   
+     - git merge 操作合并分支会让两个分支的每一次提交都按照提交时间（并不是push时间）排序，并且会将两个分支的最新一次commit点进行合并成一个新的commit，最终的分支树呈现非整条线性直线的形式
+     - git rebase操作实际上是将当前执行rebase分支的所有基于原分支提交点之后的commit打散成一个一个的patch，并重新生成一个新的commit hash值，再次基于原分支目前最新的commit点上进行提交，并不根据两个分支上实际的每次提交的时间点排序，rebase完成后，切到基分支进行合并另一个分支时也不会生成一个新的commit点，可以保持整个分支树的完美线性
+   
+     另外值得一提的是，当我们开发一个功能时，可能会在本地有无数次commit，而你实际上在你的master分支上只想显示每一个功能测试完成后的一次完整提交记录就好了，其他的提交记录并不想将来全部保留在你的master分支上，那么rebase将会是一个好的选择，他可以在rebase时将本地多次的commit合并成一个commit，还可以修改commit的描述等
+   
+     ## 最后
+   
+     如果你想要你的分支树呈现简洁，不罗嗦，线性的commit记录，那就采用rebase
+   
+     否则，就用merge吧
+   
+     
+   
+     作者：0爱上1
+     链接：https://www.jianshu.com/p/6960811ac89c
+     来源：简书
+     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 #### 临时修改 (stash)
 
 1. ##### 暂存修改 
 
+   - 假设我们现在在 `dev` 分支上快乐地改代码:
+
+     ```bash
+     $ git checkout dev
+     ```
+
+   - 在 `dev` 中的 `1.py` 中加上一行 `# feel happy`, 然后老板的电话来了, 可是我还没有改进完这些代码. 所以我就用 `stash` 将这些改变暂时放一边.
+
+     ```bash
+     $ git status -s
+     # 输出
+      M 1.py
+     ------------------ 
+     $ git stash
+     # 输出
+     Saved working directory and index state WIP on dev: f7d2e3a change 3 in dev
+     HEAD is now at f7d2e3a change 3 in dev
+     -------------------
+     $ git status
+     # 输出
+     On branch dev
+     nothing to commit, working directory clean  # 干净得很
+     ```
+
+   
+
 2. ##### 做其它任务
 
+   - 然后我们建立另一个 `branch` 用来完成老板的任务:
+
+     ```bash
+     $ git checkout -b boss
+     
+     # 输出
+     Switched to a new branch 'boss' # 创建并切换到 boss
+     ```
+
+   - 然后苦逼地完成着老板的任务, 比如添加 `# lovely boss` 去 `1.py`. 然后 `commit`, 完成老板的任务.
+
+     
+
+     ```bash
+     $ git commit -am "job from boss"
+     $ git checkout master
+     $ git merge --no-ff -m "merged boss job" boss
+     ```
+
+   - `merge` 如果有冲突的话, 可以像[上次那样](https://morvanzhou.github.io/tutorials/others/git/4-2-merge-conflict/) 解决.
+
+     ```bash
+     a = 1
+     # I went back to change 1
+     <<<<<<< HEAD
+     
+     # edited in master and dev
+     
+     =======
+     # edited in dev
+     
+     # lovely boss
+     >>>>>>> boss
+     ```
+
+   - 通过以下步骤来完成老板的任务, 并观看一下 `master` 的 log:
+
+     ```bash
+     $ git commit -am "solve conflict"
+     $ git log --oneline --graph
+     *   1536bea solve conflict
+     |\  
+     | * 27ba884 job from boss
+     * | 2d1961f change 4 in master
+     |/  
+     * f7d2e3a change 3 in dev
+     * 47f167e back to change 1 and add comment for 1.py
+     * 904e1ba change 2
+     * c6762a1 change 1
+     * 13be9a7 create 1.py
+     ```
+
+   
+
 3. ##### 恢复暂存
+
+   - 轻松了, 现在可以继续开心的在 `dev` 上刷代码了.
+
+     ```bash
+     $ git checkout dev
+     $ git stash list    # 查看在 stash 中的缓存
+     
+     # 输出
+     stash@{0}: WIP on dev: f7d2e3a change 3 in dev
+     ```
+
+   - 上面说明在 `dev` 中, 我们的确有 `stash` 的工作. 现在可以通过 `pop` 来提取这个并继续工作了.
+
+     ```bash
+     $ git stash pop
+     
+     # 输出
+     On branch dev
+     Changes not staged for commit:
+       (use "git add <file>..." to update what will be committed)
+       (use "git checkout -- <file>..." to discard changes in working directory)
+     
+     	modified:   1.py
+     
+     no changes added to commit (use "git add" and/or "git commit -a")
+     Dropped refs/stash@{0} (23332b7edc105a579b09b127336240a45756a91c)
+     ----------------------
+     $ git status -s
+     # 输出
+      M 1.py     # 和最开始一样了
+     ```
+
+
+
+## Github
+
+#### Github 在线代码管理
+
+1. ##### SSH Key公钥的生成
+
+   ```bash
+   $ ssh-keygen -t rsa -b 4096 -C "345563121@qq.com"
+   Generating public/private rsa key pair.
+   Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa): 
+   Enter passphrase (empty for no passphrase):
+   Enter same passphrase again:
+   Your identification has been saved in /c/Users/Administrator/.ssh/id_rsa_tutorial.
+   Your public key has been saved in /c/Users/Administrator/.ssh/id_rsa_tutorial.pub.
+   The key fingerprint is:
+   SHA256:nK8BolI06fjaiB6kPw07xv0OD/riUHdJFD52ZMXDeIA 345563121@qq.com
+   The key's randomart image is:
+   +---[RSA 4096]----+
+   |      oo+*.      |
+   |   . oEo. =      |
+   |  +   = .. .     |
+   | + . o = .       |
+   |..+ o + S        |
+   |o+.o o . .       |
+   |+oo=o   . .      |
+   |.BO.o+   o       |
+   |=+==.o+ .        |
+   +----[SHA256]-----+
+   ```
+
+2. ##### 配置公钥 
+
+   <img src="Git tutorial.assets/image-20200419004025476.png" alt="image-20200419004025476" style="zoom: 50%;" />
+
+3. ##### 测试连接
+
+   ```bash
+   $ ssh -T git@github.com
+   Enter passphrase for key '/c/Users/Administrator/.ssh/id_rsa':
+   Hi modianor! You've successfully authenticated, but GitHub does not provide shell access.
+   
+   ```
+
+   
+
+1. ##### 建立 github 版本库 
+
+   - 在 [github](https://github.com/) 注册一个 github 账户, 这个不用我多说, 大家都知道注册.
+
+     然后添加你的一个 online 版本库 repository:
+
+     ![image-20200419004552561](Git tutorial.assets/image-20200419004552561.png)
+
+2. ##### 连接本地版本库
+
+   ```bash
+   $ git clone https://github.com/modianor/git-tutorial.git
+   Cloning into 'git-tutorial'...
+   remote: Enumerating objects: 8, done.
+   remote: Counting objects: 100% (8/8), done.
+   remote: Compressing objects: 100% (5/5), done.
+   remote: Total 8 (delta 1), reused 4 (delta 1), pack-reused 0
+   Unpacking objects: 100% (8/8), done.
+   
+   $ cd git-tutorial/
+   
+   $ git log --oneline --graph
+   * a2f9cad (HEAD -> master, origin/master, origin/HEAD) first commit
+   * e597da0 Initial commit
+   ```
+
+   
+
+3. ##### 推送修改 
+
+   ```bash
+   $ git add .
+   
+   $ git commit -m "delete note.txt"
+   [master f55580c] delete note.txt
+    1 file changed, 1 deletion(-)
+    delete mode 100644 note.txt
+   
+   $ git push -u origin master
+   fatal: HttpRequestException encountered.
+      ▒▒▒▒▒▒▒▒ʱ▒▒▒▒
+   Counting objects: 2, done.
+   Delta compression using up to 4 threads.
+   Compressing objects: 100% (2/2), done.
+   Writing objects: 100% (2/2), 216 bytes | 216.00 KiB/s, done.
+   Total 2 (delta 1), reused 0 (delta 0)
+   remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+   To https://github.com/modianor/git-tutorial.git
+      a2f9cad..f55580c  master -> master
+   Branch 'master' set up to track remote branch 'master' from 'origin'.
+   
+   ```
+   
+   ![image-20200419005957051](Git tutorial.assets/image-20200419005957051.png)
+
+
 
 
 
