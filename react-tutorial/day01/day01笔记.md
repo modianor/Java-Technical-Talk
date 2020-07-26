@@ -110,7 +110,7 @@ ReactDOM.render(参数1，参数2)
 
 搜索 `trigger`  ，找到如图位置，打钩： 
 
-![01](.\assets_d01\01.png)
+![01](day01笔记.assets/01.png)
 
 设置后就可以通过 标签名+Tab 键快速码出标签
 
@@ -302,7 +302,7 @@ export default class App3 extends Component {
 
 在扩展搜索栏中搜索react，选择下图的扩展进行安装
 
-![02](.\assets_d01\02.png)
+![02](day01笔记.assets/02.png)
 
 安装后，通过  rcc+回车 ，得到组件的代码片段， clg+回车 快速得到console.log()代码
 

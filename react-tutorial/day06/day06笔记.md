@@ -560,13 +560,13 @@ export default connect(mapStateToProps,mapDispatchToProps)(Subject)
 
 
 
-![1573614137033](assets/1573614137033.png)
+![1573614137033](day06笔记.assets/1573614137033.png)
 
-![1573614980743](assets/1573614980743.png)
+![1573614980743](day06笔记.assets/1573614980743.png)
 
-![1573615640745](assets/1573615640745.png)
+![1573615640745](day06笔记.assets/1573615640745.png)
 
-![1573614022540](assets/1573614022540.png)
+![1573614022540](day06笔记.assets/1573614022540.png)
 
 #### 8.3、远程连接到服务器
 
@@ -603,9 +603,9 @@ root@iZwcccccvxw0wcddjrvoeZ:~# npm install -g serve
 
 打开FileZilla之后，按Ctrl+S打开站点管理器
 
-![1573617550673](assets/1573617550673.png)
+![1573617550673](day06笔记.assets/1573617550673.png)
 
-![1573617845449](assets/1573617845449.png)
+![1573617845449](day06笔记.assets/1573617845449.png)
 
 等待上传成功即可
 

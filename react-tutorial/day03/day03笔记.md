@@ -187,9 +187,9 @@ yarn start
 
 在config文件夹中的webpack.config.js文件：
 
-![1571092484656](.\assets_d03\1571092484656.png)
+![1571092484656](day03笔记.assets/1571092484656.png)
 
-![1571094139428](.\assets_d03\1571094139428.png)
+![1571094139428](day03笔记.assets/1571094139428.png)
 
 代码：
 
@@ -318,7 +318,7 @@ import LoginPage from './LoginPage'
 
 看到效果：
 
-![1571121305198](.\assets_d03\1571121305198.png)
+![1571121305198](day03笔记.assets/1571121305198.png)
 
 
 
@@ -332,7 +332,7 @@ import LoginPage from './LoginPage'
 
 D:\react\kdlzx>**yarn add normalize.css**
 
-![1571121866825](.\assets_d03\1571121866825.png)
+![1571121866825](day03笔记.assets/1571121866825.png)
 
 安装成功后，在src/pages下的index.js中:
 
@@ -343,7 +343,7 @@ import 'normalize.css'
 
 
 
-![1571121803912](.\assets_d03\1571121803912.png)
+![1571121803912](day03笔记.assets/1571121803912.png)
 
 
 
@@ -373,7 +373,7 @@ html,body,#root{ height: 100%;}
 
 
 
-![1571122383484](.\assets_d03\1571122383484.png)
+![1571122383484](day03笔记.assets/1571122383484.png)
 
 ## 十、logo图片的完成
 
@@ -492,7 +492,7 @@ export default class FormInput extends Component {
 }
 ```
 
-![1571156624786](.\assets_d03\1571156624786.png)
+![1571156624786](day03笔记.assets/1571156624786.png)
 
 
 
@@ -549,7 +549,7 @@ import '../assets/fonts/iconfont/iconfont.css'
                 </form>
 ```
 
-![571246157073](.\assets_d03\1571246205146.png)
+![571246157073](day03笔记.assets/1571246205146.png)
 
 
 
